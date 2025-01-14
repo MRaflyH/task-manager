@@ -5,4 +5,8 @@ const app = express();
 app.use(express.json());
 app.use("/api/tasks", tasksRoute);
 
+app.get("/", (req, res) => {
+    res.send("Task Manager API is live!");
+  });
+  
 module.exports = app;
