@@ -1,0 +1,15 @@
+{
+    "name": "task-manager",
+    "version": "1.0.0",
+    "description": "Simple Task Manager API using MongoDB Atlas",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "test-connection": "node src/utils/testConnection.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "express": "^4.18.2",
+        "mongoose": "^6.8.0"
+    }
+}
