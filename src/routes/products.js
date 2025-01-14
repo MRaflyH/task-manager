@@ -10,7 +10,8 @@ router.post("/", async (req, res) => {
     await product.save();
     res.status(201).json(product);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error creating product:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -20,7 +21,8 @@ router.get("/", async (req, res) => {
     const products = await Product.find();
     res.status(200).json(products);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Error fetching products:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -30,7 +32,8 @@ router.put("/:id", async (req, res) => {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json(product);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error updating product:", error.message);
+    res.status(400).json({ error: "Bad Request" });
   }
 });
 
@@ -40,7 +43,8 @@ router.delete("/:id", async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.status(204).send();
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error deleting product:", error.message);
+    res.status(400).json({ error: "Bad Request" });
   }
 });
 
