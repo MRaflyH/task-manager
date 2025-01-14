@@ -1,10 +1,11 @@
 const express = require("express");
 const tasksRoute = require("./routes/tasks");
+const productsRoute = require("./routes/products"); // Add this line
 
 const app = express();
 app.use(express.json());
 app.use("/api/tasks", tasksRoute);
-app.use("/api/products", productsRoute); // Add products route
+app.use("/api/products", productsRoute); // Fix here
 
 // Default route for the root
 app.get("/", (req, res) => {
